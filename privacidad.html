@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Política de privacidad — ObjectFlow Offline</title>
+    <meta
+      name="description"
+      content="Política de privacidad de ObjectFlow Offline: la app procesa todo en el dispositivo, no tiene permiso de Internet y no recopila ni comparte datos."
+    />
+    <meta name="theme-color" content="#050b24" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="alternate" hreflang="en" href="en/privacy.html" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./">
+          <img src="assets/icon-192.png" alt="" width="36" height="36" />
+          ObjectFlow Offline
+        </a>
+        <nav class="site-nav" aria-label="Principal">
+          <a href="./">Inicio</a>
+          <a class="lang" href="en/privacy.html" lang="en" hreflang="en">English</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="doc">
+      <div class="wrap">
+        <h1>Política de privacidad</h1>
+        <p class="meta">ObjectFlow Offline para Android · Vigente desde el 4 de octubre de 2026</p>
+
+        <div class="summary">
+          <p><strong>En resumen</strong></p>
+          <ul>
+            <li>La app no recopila, no transmite y no comparte ningún dato tuyo.</li>
+            <li>No tiene permiso de acceso a Internet: no puede enviar nada fuera del teléfono.</li>
+            <li>Las imágenes de la cámara y los videos se analizan en el dispositivo y no se guardan.</li>
+            <li>Los resultados del conteo quedan en tu teléfono hasta que vos los borres.</li>
+            <li>No hay cuentas, anuncios, analíticas ni herramientas de seguimiento.</li>
+          </ul>
+        </div>
+
+        <h2>1. A qué se aplica esta política</h2>
+        <p>
+          Esta política describe cómo trata la información la aplicación ObjectFlow Offline para Android (en
+          adelante, "la app"), identificada con el nombre de paquete <code>com.objectflow.offline</code>. También
+          cubre este sitio web.
+        </p>
+
+        <h2>2. Qué información usa la app y para qué</h2>
+        <p>Toda la información que se menciona a continuación se procesa y permanece en tu dispositivo.</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Información</th>
+                <th scope="col">Para qué se usa</th>
+                <th scope="col">Qué pasa con ella</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Imágenes de la cámara</td>
+                <td>Detectar y contar objetos en vivo.</td>
+                <td>
+                  Se analizan en memoria, fotograma por fotograma, y se descartan. No se guardan fotos ni videos.
+                </td>
+              </tr>
+              <tr>
+                <td>Videos que elegís</td>
+                <td>Detectar y contar objetos en un video guardado.</td>
+                <td>
+                  Se leen desde donde están, sin copiarlos ni modificarlos. La app guarda la referencia al archivo
+                  y su nombre junto con la sesión, y una miniatura temporal del primer fotograma para ubicar la
+                  línea, que se reemplaza al elegir otro video.
+                </td>
+              </tr>
+              <tr>
+                <td>Resultados del conteo</td>
+                <td>Mostrar el historial y permitir la exportación.</td>
+                <td>
+                  Se guardan en el almacenamiento privado de la app: fecha y duración de la sesión, y por cada
+                  cruce el momento, el tipo de objeto, el sentido, un número interno de seguimiento, la confianza
+                  de la detección y la posición en la imagen. No se guardan imágenes de los objetos.
+                </td>
+              </tr>
+              <tr>
+                <td>Configuración</td>
+                <td>Recordar tus preferencias.</td>
+                <td>
+                  Línea de conteo, región de interés, clases elegidas, confianza mínima y modo de rendimiento. Se
+                  guardan en el almacenamiento privado de la app.
+                </td>
+              </tr>
+              <tr>
+                <td>Registro de diagnóstico</td>
+                <td>Ayudarte a identificar un problema técnico.</td>
+                <td>
+                  Un archivo de texto con errores técnicos de la app. Queda en el dispositivo y no se envía. Podés
+                  verlo desde Configuración.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          La app no identifica personas. No realiza reconocimiento facial, no lee patentes y no crea perfiles. El
+          número de seguimiento que asigna a cada objeto es interno, temporal, y solo sirve para no contarlo dos
+          veces dentro de una misma sesión.
+        </p>
+
+        <h2>3. Qué información no se recopila</h2>
+        <ul>
+          <li>No se piden nombre, correo electrónico, teléfono ni ningún dato de registro. No hay cuentas.</li>
+          <li>No se accede a tu ubicación, contactos, micrófono ni a otros archivos del dispositivo.</li>
+          <li>No se usan identificadores publicitarios ni del dispositivo.</li>
+          <li>No se incluyen bibliotecas de publicidad, analíticas, informes de fallos remotos ni seguimiento.</li>
+        </ul>
+
+        <h2>4. Permisos</h2>
+        <ul>
+          <li>
+            <strong>Cámara:</strong> se pide solo cuando iniciás el conteo en vivo. Si lo negás, podés seguir
+            usando el análisis de videos.
+          </li>
+          <li>
+            <strong>Internet:</strong> la app no declara este permiso. El sistema operativo le impide conectarse a
+            la red.
+          </li>
+        </ul>
+        <p>
+          Para elegir un video, guardar un archivo o compartirlo se usan las pantallas del propio sistema Android.
+          La app solo accede al archivo o a la ubicación que vos seleccionás en cada caso.
+        </p>
+
+        <h2>5. Con quién se comparte la información</h2>
+        <p>
+          Con nadie. La app no transmite datos al desarrollador ni a terceros, y no existe un servidor que los
+          reciba.
+        </p>
+        <p>
+          La única salida de información ocurre cuando vos mismo exportás o compartís los archivos CSV de una
+          sesión. En ese caso los archivos van a la app o ubicación que elijas (por ejemplo, un servicio de
+          almacenamiento o de mensajería), y a partir de ahí se aplica la política de privacidad de ese servicio.
+        </p>
+        <p>
+          Al compartir, la app deja una copia temporal de esos dos archivos en su propia caché para entregársela a
+          la app de destino. Esa copia se reemplaza la próxima vez que compartas.
+        </p>
+
+        <h2>6. Conservación y eliminación</h2>
+        <ul>
+          <li>Las sesiones se conservan en el dispositivo hasta que las borres.</li>
+          <li>Podés eliminar cualquier sesión, con todos sus cruces, desde su pantalla en el historial.</li>
+          <li>
+            Podés borrar todo de una vez desde los ajustes de Android (Aplicaciones → ObjectFlow Offline →
+            Almacenamiento → Borrar datos) o desinstalando la app.
+          </li>
+        </ul>
+        <p>
+          Como el desarrollador no recibe ningún dato, no hay nada que pueda consultar, corregir o eliminar por
+          vos: el control es enteramente tuyo, en tu dispositivo.
+        </p>
+
+        <h2>7. Seguridad</h2>
+        <p>
+          Los datos se guardan en el almacenamiento privado que Android reserva para la app, al que otras
+          aplicaciones no pueden acceder. Su protección depende también de las medidas de tu dispositivo, como el
+          bloqueo de pantalla. Los archivos que exportes quedan fuera de esa protección.
+        </p>
+
+        <h2>8. Uso responsable al filmar</h2>
+        <p>
+          Filmar a personas o en determinados lugares puede estar regulado por las leyes de tu país o región. Sos
+          responsable de usar la app respetando esas normas y los derechos de las personas que aparecen en la
+          imagen.
+        </p>
+
+        <h2>9. Menores de edad</h2>
+        <p>
+          La app no está dirigida a niños y no recopila datos personales de ningún usuario, cualquiera sea su
+          edad.
+        </p>
+
+        <h2>10. Google Play y este sitio</h2>
+        <ul>
+          <li>
+            Si instalás la app desde Google Play, Google puede tratar datos de la instalación y del funcionamiento
+            de la app según sus propias políticas. La app no incluye ningún componente propio para eso.
+          </li>
+          <li>
+            Este sitio web no usa cookies ni analíticas. Está alojado en GitHub Pages, que puede registrar datos
+            técnicos de las visitas, como la dirección IP, según la política de privacidad de GitHub.
+          </li>
+        </ul>
+
+        <h2>11. Cambios en esta política</h2>
+        <p>
+          Si la app cambia de forma que afecte el tratamiento de la información, esta página se actualizará y se
+          modificará la fecha de vigencia. Los cambios importantes se indicarán también en la ficha de la app.
+        </p>
+
+        <h2>12. Contacto</h2>
+        <p>
+          Para consultas sobre esta política o sobre la app, podés abrir una consulta en
+          <a href="https://github.com/franbenaglia/videoTrackingLanding/issues">el repositorio del sitio en GitHub</a>.
+        </p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>ObjectFlow Offline</span>
+        <nav aria-label="Pie de página">
+          <a href="./">Inicio</a>
+          <a href="en/privacy.html" lang="en" hreflang="en">English</a>
+          <a href="https://github.com/franbenaglia/videoTrackingLanding/issues">Contacto</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

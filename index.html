@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ObjectFlow Offline — Conteo de personas y vehículos sin Internet</title>
+    <meta
+      name="description"
+      content="App Android que detecta, sigue y cuenta personas y vehículos que cruzan una línea, con la cámara o un video. Todo el procesamiento ocurre en el teléfono, sin Internet ni cuentas."
+    />
+    <meta name="theme-color" content="#050b24" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ObjectFlow Offline" />
+    <meta
+      property="og:description"
+      content="Contá personas y vehículos que cruzan una línea. Todo en tu teléfono, sin Internet."
+    />
+    <meta property="og:image" content="assets/hero.jpg" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="alternate" hreflang="en" href="en/" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./">
+          <img src="assets/icon-192.png" alt="" width="36" height="36" />
+          ObjectFlow Offline
+        </a>
+        <nav class="site-nav" aria-label="Principal">
+          <a class="optional" href="#funciones">Funciones</a>
+          <a class="optional" href="#como-funciona">Cómo funciona</a>
+          <a href="privacidad.html">Privacidad</a>
+          <a class="lang" href="en/" lang="en" hreflang="en">English</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <h1>Contá lo que cruza la línea. <span>Sin Internet.</span></h1>
+            <p class="lead">
+              ObjectFlow Offline detecta, sigue y cuenta personas y vehículos con la cámara del teléfono o con un
+              video guardado. Todo el análisis ocurre en el dispositivo: nada se sube a ningún servidor.
+            </p>
+            <div class="actions">
+              <span class="badge-soon">Próximamente en Google Play</span>
+              <a class="button button-ghost" href="privacidad.html">Política de privacidad</a>
+            </div>
+            <p class="fine">Para Android 7.0 o superior. Sin cuenta, sin anuncios, sin seguimiento.</p>
+          </div>
+          <img
+            class="hero-art"
+            src="assets/hero.jpg"
+            width="1600"
+            height="781"
+            alt="Ilustración de una calle donde una persona, un auto y una moto son detectados y contados al cruzar líneas de conteo"
+          />
+        </div>
+      </section>
+
+      <section id="funciones">
+        <div class="wrap">
+          <h2>Qué hace</h2>
+          <p class="section-lead">
+            Dibujás una línea sobre la imagen y la app cuenta cada objeto que la cruza, separando el sentido y el
+            tipo de objeto.
+          </p>
+          <ul class="cards">
+            <li class="card">
+              <h3>Cámara en vivo o video</h3>
+              <p>Contá en tiempo real apuntando el teléfono, o analizá un video que ya tengas guardado.</p>
+            </li>
+            <li class="card">
+              <h3>Seis tipos de objeto</h3>
+              <p>Personas, bicicletas, autos, motos, colectivos y camiones. Elegís cuáles contar.</p>
+            </li>
+            <li class="card">
+              <h3>Conteo en los dos sentidos</h3>
+              <p>Cada cruce se registra como A → B o B → A, con un total por clase y por sentido.</p>
+            </li>
+            <li class="card">
+              <h3>Seguimiento con identificador</h3>
+              <p>
+                Cada objeto recibe un número mientras está en cuadro, para que no se cuente dos veces en el mismo
+                sentido.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Línea y región ajustables</h3>
+              <p>
+                Arrastrá los extremos de la línea con el dedo y, si querés, limitá el conteo a una región de la
+                imagen.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Historial y exportación</h3>
+              <p>
+                Cada sesión queda guardada en el teléfono. Podés exportarla o compartirla como archivos CSV de
+                eventos y de resumen.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Tres modos de rendimiento</h3>
+              <p>
+                Rápido, Equilibrado y Preciso: elegís entre más cuadros por segundo o mejor detección de objetos
+                pequeños.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Medición a la vista</h3>
+              <p>Cuadros por segundo, tiempo de análisis y fotogramas descartados, visibles durante la sesión.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="privacy-band" id="privacidad">
+        <div class="wrap">
+          <h2>La privacidad no es una opción: es el diseño</h2>
+          <p class="section-lead">
+            La app no tiene permiso de acceso a Internet. No puede enviar tus imágenes ni tus resultados a ningún
+            lado, aunque quisiera.
+          </p>
+          <ul class="checks">
+            <li>El análisis se hace en el teléfono.</li>
+            <li>Las imágenes y los videos no se suben ni se guardan.</li>
+            <li>No hace falta crear una cuenta.</li>
+            <li>Sin anuncios, analíticas ni seguimiento.</li>
+            <li>Sin reconocimiento facial ni lectura de patentes.</li>
+            <li>Vos decidís qué exportar y qué borrar.</li>
+          </ul>
+          <a class="button button-primary" href="privacidad.html">Leer la política de privacidad</a>
+        </div>
+      </section>
+
+      <section id="como-funciona">
+        <div class="wrap">
+          <h2>Cómo funciona</h2>
+          <p class="section-lead">Tres pasos, sin configuración previa.</p>
+          <ol class="steps">
+            <li>
+              <strong>Elegí la fuente</strong>
+              <span>Abrí la cámara o seleccioná un video del teléfono.</span>
+            </li>
+            <li>
+              <strong>Ubicá la línea</strong>
+              <span>Arrastrá sus extremos hasta el lugar por donde pasan los objetos. Los lados quedan marcados como A y B.</span>
+            </li>
+            <li>
+              <strong>Iniciá el conteo</strong>
+              <span>La tabla se actualiza con cada cruce. Al terminar, la sesión queda en el historial.</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="detalles">
+        <div class="wrap">
+          <h2>Detalles</h2>
+          <dl class="facts">
+            <dt>Plataforma</dt>
+            <dd>Android 7.0 (API 24) o superior.</dd>
+            <dt>Conexión</dt>
+            <dd>No requiere Internet. La app no declara el permiso de red.</dd>
+            <dt>Permisos</dt>
+            <dd>Cámara, solo para el conteo en vivo. Analizar un video no requiere permisos.</dd>
+            <dt>Idioma</dt>
+            <dd>Español. La versión en inglés está en preparación.</dd>
+            <dt>Modelo de detección</dt>
+            <dd>EfficientDet-Lite, de código abierto (licencia Apache 2.0), incluido en la app.</dd>
+            <dt>Estado</dt>
+            <dd>En desarrollo. Todavía no está publicada en Google Play.</dd>
+          </dl>
+          <p class="note">
+            El conteo es una estimación automática. La precisión depende de la luz, la distancia, el ángulo de la
+            cámara y la cantidad de objetos que se tapan entre sí. No debe usarse como única fuente en decisiones
+            donde un error tenga consecuencias importantes.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>ObjectFlow Offline</span>
+        <nav aria-label="Pie de página">
+          <a href="privacidad.html">Política de privacidad</a>
+          <a href="en/" lang="en" hreflang="en">English</a>
+          <a href="https://github.com/franbenaglia/videoTrackingLanding/issues">Contacto</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ObjectFlow Offline — Count people and vehicles without the Internet</title>
+    <meta
+      name="description"
+      content="Android app that detects, tracks and counts people and vehicles crossing a line, using the camera or a video. All processing happens on the phone, with no Internet and no accounts."
+    />
+    <meta name="theme-color" content="#050b24" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ObjectFlow Offline" />
+    <meta
+      property="og:description"
+      content="Count people and vehicles crossing a line. All on your phone, with no Internet."
+    />
+    <meta property="og:image" content="../assets/hero.jpg" />
+    <link rel="icon" type="image/png" href="../assets/favicon.png" />
+    <link rel="alternate" hreflang="es" href="../" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./">
+          <img src="../assets/icon-192.png" alt="" width="36" height="36" />
+          ObjectFlow Offline
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="optional" href="#features">Features</a>
+          <a class="optional" href="#how-it-works">How it works</a>
+          <a href="privacy.html">Privacy</a>
+          <a class="lang" href="../" lang="es" hreflang="es">Español</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <h1>Count what crosses the line. <span>No Internet.</span></h1>
+            <p class="lead">
+              ObjectFlow Offline detects, tracks and counts people and vehicles using your phone's camera or a
+              saved video. All the analysis happens on the device: nothing is uploaded to any server.
+            </p>
+            <div class="actions">
+              <span class="badge-soon">Coming soon to Google Play</span>
+              <a class="button button-ghost" href="privacy.html">Privacy policy</a>
+            </div>
+            <p class="fine">For Android 7.0 or later. No account, no ads, no tracking.</p>
+          </div>
+          <img
+            class="hero-art"
+            src="../assets/hero.jpg"
+            width="1600"
+            height="781"
+            alt="Illustration of a street where a person, a car and a motorcycle are detected and counted as they cross counting lines"
+          />
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="wrap">
+          <h2>What it does</h2>
+          <p class="section-lead">
+            You draw a line over the image and the app counts every object that crosses it, split by direction and
+            by type of object.
+          </p>
+          <ul class="cards">
+            <li class="card">
+              <h3>Live camera or video</h3>
+              <p>Count in real time by pointing your phone, or analyse a video you already have.</p>
+            </li>
+            <li class="card">
+              <h3>Six types of object</h3>
+              <p>People, bicycles, cars, motorcycles, buses and trucks. You choose which ones to count.</p>
+            </li>
+            <li class="card">
+              <h3>Counting in both directions</h3>
+              <p>Each crossing is recorded as A → B or B → A, with a total per class and per direction.</p>
+            </li>
+            <li class="card">
+              <h3>Tracking with an identifier</h3>
+              <p>
+                Each object gets a number while it is in frame, so it is not counted twice in the same direction.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Adjustable line and region</h3>
+              <p>Drag the ends of the line with your finger and, if you like, limit counting to a region of the image.</p>
+            </li>
+            <li class="card">
+              <h3>History and export</h3>
+              <p>
+                Every session is saved on the phone. You can export or share it as CSV files with the events and a
+                summary.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Three performance modes</h3>
+              <p>Fast, Balanced and Precise: choose between more frames per second or better detection of small objects.</p>
+            </li>
+            <li class="card">
+              <h3>Measurements on screen</h3>
+              <p>Frames per second, analysis time and dropped frames, visible during the session.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="privacy-band" id="privacy">
+        <div class="wrap">
+          <h2>Privacy is not a setting: it is the design</h2>
+          <p class="section-lead">
+            The app has no Internet permission. It cannot send your images or your results anywhere, even if it
+            wanted to.
+          </p>
+          <ul class="checks">
+            <li>The analysis runs on the phone.</li>
+            <li>Images and videos are neither uploaded nor stored.</li>
+            <li>No account is needed.</li>
+            <li>No ads, analytics or tracking.</li>
+            <li>No facial recognition and no licence plate reading.</li>
+            <li>You decide what to export and what to delete.</li>
+          </ul>
+          <a class="button button-primary" href="privacy.html">Read the privacy policy</a>
+        </div>
+      </section>
+
+      <section id="how-it-works">
+        <div class="wrap">
+          <h2>How it works</h2>
+          <p class="section-lead">Three steps, with no setup beforehand.</p>
+          <ol class="steps">
+            <li>
+              <strong>Choose the source</strong>
+              <span>Open the camera or pick a video from the phone.</span>
+            </li>
+            <li>
+              <strong>Place the line</strong>
+              <span>Drag its ends to where the objects pass. The two sides are labelled A and B.</span>
+            </li>
+            <li>
+              <strong>Start counting</strong>
+              <span>The table updates with every crossing. When you finish, the session is saved to the history.</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="details">
+        <div class="wrap">
+          <h2>Details</h2>
+          <dl class="facts">
+            <dt>Platform</dt>
+            <dd>Android 7.0 (API 24) or later.</dd>
+            <dt>Connection</dt>
+            <dd>No Internet required. The app does not declare the network permission.</dd>
+            <dt>Permissions</dt>
+            <dd>Camera, only for live counting. Analysing a video needs no permissions.</dd>
+            <dt>Language</dt>
+            <dd>The app is currently in Spanish. An English version is in preparation.</dd>
+            <dt>Detection model</dt>
+            <dd>EfficientDet-Lite, open source (Apache 2.0 licence), bundled with the app.</dd>
+            <dt>Status</dt>
+            <dd>In development. Not yet published on Google Play.</dd>
+          </dl>
+          <p class="note">
+            The count is an automatic estimate. Accuracy depends on lighting, distance, camera angle and how much
+            objects hide one another. It should not be the only source for decisions where an error would have
+            serious consequences.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>ObjectFlow Offline</span>
+        <nav aria-label="Footer">
+          <a href="privacy.html">Privacy policy</a>
+          <a href="../" lang="es" hreflang="es">Español</a>
+          <a href="https://github.com/franbenaglia/videoTrackingLanding/issues">Contact</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
