@@ -30,6 +30,7 @@
         <nav class="site-nav" aria-label="Principal">
           <a class="optional" href="#funciones">Funciones</a>
           <a class="optional" href="#como-funciona">Cómo funciona</a>
+          <a class="optional" href="#instalar">Instalar</a>
           <a href="privacidad.html">Privacidad</a>
           <a class="lang" href="en/" lang="en" hreflang="en">English</a>
         </nav>
@@ -46,10 +47,13 @@
               video guardado. Todo el análisis ocurre en el dispositivo: nada se sube a ningún servidor.
             </p>
             <div class="actions">
-              <span class="badge-soon">Próximamente en Google Play</span>
+              <a class="button button-primary" href="https://github.com/franbenaglia/videoTrackingLanding/releases/latest/download/objectflow-offline.apk">Descargar APK para Android</a>
               <a class="button button-ghost" href="privacidad.html">Política de privacidad</a>
             </div>
-            <p class="fine">Para Android 7.0 o superior. Sin cuenta, sin anuncios, sin seguimiento.</p>
+            <p class="fine">
+              Versión 1.0.0 · 35 MB · Android 7.0 o superior. Sin cuenta, sin anuncios, sin seguimiento.
+              Próximamente también en Google Play.
+            </p>
           </div>
           <img
             class="hero-art"
@@ -157,6 +161,38 @@
         </div>
       </section>
 
+      <section id="instalar">
+        <div class="wrap">
+          <h2>Cómo instalarla</h2>
+          <p class="section-lead">
+            Por ahora la app se distribuye como archivo APK, fuera de Google Play. Android pide una confirmación
+            extra para este tipo de instalación.
+          </p>
+          <ol class="steps">
+            <li>
+              <strong>Descargá el APK</strong>
+              <span>Desde el teléfono, tocá <a href="https://github.com/franbenaglia/videoTrackingLanding/releases/latest/download/objectflow-offline.apk">Descargar APK</a>. El archivo pesa 35 MB.</span>
+            </li>
+            <li>
+              <strong>Permití la instalación</strong>
+              <span>
+                Al abrir el archivo, Android te va a pedir que autorices al navegador o al gestor de archivos a
+                instalar aplicaciones. Podés quitar ese permiso después.
+              </span>
+            </li>
+            <li>
+              <strong>Abrí la app</strong>
+              <span>El permiso de cámara se pide recién cuando iniciás el conteo en vivo.</span>
+            </li>
+          </ol>
+          <p class="note">
+            La app instalada de esta forma no se actualiza sola: las versiones nuevas se publican en
+            <a href="https://github.com/franbenaglia/videoTrackingLanding/releases">la página de versiones</a>, donde también está la huella SHA-256 de cada archivo para
+            comprobar que la descarga es la original.
+          </p>
+        </div>
+      </section>
+
       <section id="detalles">
         <div class="wrap">
           <h2>Detalles</h2>
@@ -172,7 +208,7 @@
             <dt>Modelo de detección</dt>
             <dd>EfficientDet-Lite, de código abierto (licencia Apache 2.0), incluido en la app.</dd>
             <dt>Estado</dt>
-            <dd>En desarrollo. Todavía no está publicada en Google Play.</dd>
+            <dd>Versión 1.0.0, disponible como descarga directa. Todavía no está publicada en Google Play.</dd>
           </dl>
           <p class="note">
             El conteo es una estimación automática. La precisión depende de la luz, la distancia, el ángulo de la
