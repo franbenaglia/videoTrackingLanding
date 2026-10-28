@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ObjectFlow Offline — Technical demo</title>
+    <meta
+      name="description"
+      content="Technical demonstration of ObjectFlow Offline, an Android app that detects, tracks and counts people and vehicles crossing a line, entirely on the device."
+    />
+    <!--
+      Indexación: la página no se indexa por defecto. Para permitirlo, cambiar
+      "noindex, follow" por "index, follow". noindex no restringe el acceso:
+      cualquiera con la URL puede abrir la página.
+    -->
+    <meta name="robots" content="noindex, follow" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#050b24" />
+    <link rel="icon" type="image/png" href="../assets/favicon.png" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <link rel="stylesheet" href="demo.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <span class="brand">
+          <img src="../assets/icon-192.png" alt="" width="36" height="36" />
+          ObjectFlow Offline
+        </span>
+        <nav class="site-nav" aria-label="Sections">
+          <a class="optional" href="#capabilities">Capabilities</a>
+          <a class="optional" href="#test">How to test</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#notes">Technical notes</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero demo-hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">Technical demonstration</p>
+            <h1>ObjectFlow Offline</h1>
+            <p class="lead">
+              On-device object detection, multi-object tracking and bidirectional line counting for Android. The app
+              analyzes the live camera or a stored video, assigns persistent IDs to people and vehicles, and counts
+              each one when it crosses a user-defined line. All inference runs on the phone; the app has no network
+              permission.
+            </p>
+            <div class="actions">
+              <a
+                class="button button-primary"
+                href="https://github.com/franbenaglia/videoTrackingLanding/releases/download/v1.1.0/objectflow-offline-v1.1.0.apk"
+                type="application/vnd.android.package-archive"
+                >Download Android APK</a
+              >
+            </div>
+            <p class="fine">Version 1.1.0 · 36.4 MB · Android 7.0 or later · ARM devices · No account required.</p>
+          </div>
+          <div class="hero-shot">
+            <button
+              class="shot-button"
+              type="button"
+              data-full="screens/live-camera-1080.jpg"
+              data-caption="Live camera mode counting people and cars filmed from a monitor."
+            >
+              <img
+                src="screens/live-camera-540.jpg"
+                width="540"
+                height="1080"
+                alt="Live camera screen: tracked people and cars with numbered boxes, a vertical counting line with sides A and B, a dashed region of interest, a per-class count table and live performance figures"
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="capabilities">
+        <div class="wrap">
+          <h2>Technical capabilities</h2>
+          <p class="section-lead">What the project implements, as it ships in version 1.1.0.</p>
+          <ul class="cards">
+            <li class="card">
+              <h3>Offline AI inference</h3>
+              <p>
+                EfficientDet-Lite0, Lite1 and Lite2 models (Apache 2.0) bundled in the APK and run with LiteRT on the
+                CPU. An optional GPU delegate falls back to the CPU automatically if it fails.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Real-time camera pipeline</h3>
+              <p>
+                CameraX preview and image analysis share one viewport, so analyzed frames match what is on screen.
+                Stale frames are dropped instead of queued, and dropped frames are measured.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Multi-object tracking</h3>
+              <p>
+                IoU and center-distance association with short-term motion prediction keeps an ID through brief
+                occlusions and when two objects cross each other.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Bidirectional line counting</h3>
+              <p>
+                Side test by signed distance, a hysteresis band against objects oscillating on the line, an optional
+                region of interest, and at most one count per object and direction.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Video file analysis</h3>
+              <p>
+                Decoding with Android MediaCodec, rotation metadata handled, and every crossing stamped with its
+                position in the video.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Local storage and export</h3>
+              <p>
+                Sessions and every crossing are written to SQLite (Room) as they happen, so a crash does not lose the
+                count. Results export to CSV through the Android share sheet.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="screenshots">
+        <div class="wrap">
+          <h2>Screenshots</h2>
+          <p class="section-lead">Captured on a real device. Select an image to enlarge it.</p>
+          <ul class="gallery">
+            <li>
+              <figure>
+                <button
+                  class="shot-button"
+                  type="button"
+                  data-full="screens/live-camera-1080.jpg"
+                  data-caption="Live camera mode. The interface in this capture is in Spanish; version 1.1.0 uses English unless the phone is set to Spanish. The browser bar and video title on the filmed monitor are pixelated."
+                >
+                  <img
+                    src="screens/live-camera-540.jpg"
+                    width="540"
+                    height="1080"
+                    loading="lazy"
+                    alt="Live camera screen counting people and cars, with numbered boxes, counting line, region of interest and count table"
+                  />
+                </button>
+                <figcaption>
+                  Live camera: tracked objects with IDs, counting line with sides A and B, region of interest, count
+                  per class and direction, FPS, inference time and dropped frames. Interface shown in Spanish.
+                </figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <button
+                  class="shot-button"
+                  type="button"
+                  data-full="screens/home-1080.jpg"
+                  data-caption="Home screen with the summary of the last saved session."
+                >
+                  <img
+                    src="screens/home-540.jpg"
+                    width="540"
+                    height="1080"
+                    loading="lazy"
+                    alt="Home screen with Live camera, Analyze video, History and Settings buttons, and a summary table of the last session"
+                  />
+                </button>
+                <figcaption>Home: the four entry points and a summary of the last saved session.</figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <button
+                  class="shot-button"
+                  type="button"
+                  data-full="screens/session-1080.jpg"
+                  data-caption="Saved session analyzed from a test video, with its count and performance figures."
+                >
+                  <img
+                    src="screens/session-540.jpg"
+                    width="540"
+                    height="1080"
+                    loading="lazy"
+                    alt="Saved session screen with the count per class and direction, source, duration, model, mode, average FPS and average inference time"
+                  />
+                </button>
+                <figcaption>Saved session: count per class and direction, model, mode and measured performance.</figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <button
+                  class="shot-button"
+                  type="button"
+                  data-full="screens/events-1080.jpg"
+                  data-caption="Events of a saved session and the CSV export buttons."
+                >
+                  <img
+                    src="screens/events-540.jpg"
+                    width="540"
+                    height="1080"
+                    loading="lazy"
+                    alt="List of crossings of a saved session with time, class, direction and track ID, plus CSV share and save buttons"
+                  />
+                </button>
+                <figcaption>Crossing events with video timestamp, class, direction and track ID; CSV share and export.</figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <button
+                  class="shot-button"
+                  type="button"
+                  data-full="screens/settings-1080.jpg"
+                  data-caption="Settings screen."
+                >
+                  <img
+                    src="screens/settings-540.jpg"
+                    width="540"
+                    height="1080"
+                    loading="lazy"
+                    alt="Settings screen with checkboxes for the six classes, a minimum confidence slider and display toggles"
+                  />
+                </button>
+                <figcaption>Settings: classes to count, minimum confidence, box and ID display, region of interest.</figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="test">
+        <div class="wrap">
+          <h2>How to test the application</h2>
+          <ol class="steps">
+            <li>
+              <strong>Download the APK</strong>
+              <span>Use the Download Android APK button on your Android phone.</span>
+            </li>
+            <li>
+              <strong>Open the file</strong>
+              <span>
+                Android may ask you to allow your browser or file manager to install apps. This is Android's standard
+                prompt for apps installed outside an app store.
+              </span>
+            </li>
+            <li>
+              <strong>Install and launch</strong>
+              <span>Follow Android's installation screens, then open ObjectFlow Offline.</span>
+            </li>
+          </ol>
+          <dl class="facts facts-spaced">
+            <dt>Minimum Android</dt>
+            <dd>Android 7.0 (API level 24) on an ARM device.</dd>
+            <dt>Internet</dt>
+            <dd>Not required. Everything works offline; the app does not declare the Internet permission.</dd>
+            <dt>Hardware</dt>
+            <dd>A camera for live mode. Video analysis works without one.</dd>
+            <dt>Account</dt>
+            <dd>None. There is no backend and no sign-in.</dd>
+          </dl>
+        </div>
+      </section>
+
+      <section id="scenario">
+        <div class="wrap">
+          <h2>Suggested demonstration</h2>
+          <ol class="scenario">
+            <li>Open <strong>Live camera</strong> and tap <strong>Start</strong>. Grant the camera permission.</li>
+            <li>
+              Point the phone at a street, a corridor, or a video of people walking played on another screen.
+            </li>
+            <li>Drag the two ends of the counting line across the path the objects follow.</li>
+            <li>
+              Watch each person or vehicle get a box and an ID, and the A → B and B → A columns increase as they cross.
+            </li>
+            <li>
+              Tap <strong>Stop</strong>, then <strong>View saved session</strong> to see the totals and the list of
+              crossings, and share them as CSV.
+            </li>
+          </ol>
+          <p class="note">
+            To test without pointing the camera at people, choose <strong>Analyze video</strong> and pick any video
+            on the phone that shows people or vehicles moving.
+          </p>
+        </div>
+      </section>
+
+      <section id="architecture">
+        <div class="wrap">
+          <h2>Technical architecture</h2>
+          <p class="section-lead">
+            A hybrid app: the interface is web technology, and everything that touches frames is native Kotlin.
+            Frames never cross into JavaScript; only results and statistics do, about seven times per second.
+          </p>
+          <svg
+            class="diagram"
+            viewBox="0 0 960 360"
+            role="img"
+            aria-labelledby="diagram-title diagram-desc"
+          >
+            <title id="diagram-title">Processing pipeline</title>
+            <desc id="diagram-desc">
+              Camera or video frames are converted from YUV, passed to the LiteRT detector, then to the tracker and the
+              line counter. Results are stored in SQLite and drawn on a native overlay; the React and Ionic interface
+              receives only results and statistics through the Capacitor bridge.
+            </desc>
+            <defs>
+              <marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee" />
+              </marker>
+            </defs>
+
+            <rect class="group" x="10" y="10" width="940" height="230" rx="14" />
+            <text class="group-label" x="28" y="34">NATIVE KOTLIN</text>
+
+            <rect class="box" x="30" y="60" width="150" height="70" rx="10" />
+            <text class="title" x="105" y="90" text-anchor="middle">Camera / video</text>
+            <text class="sub" x="105" y="110" text-anchor="middle">CameraX · MediaCodec</text>
+
+            <rect class="box" x="210" y="60" width="150" height="70" rx="10" />
+            <text class="title" x="285" y="90" text-anchor="middle">Frame prep</text>
+            <text class="sub" x="285" y="110" text-anchor="middle">YUV → RGB · letterbox</text>
+
+            <rect class="box-accent" x="390" y="60" width="150" height="70" rx="10" />
+            <text class="title" x="465" y="90" text-anchor="middle">Detector</text>
+            <text class="sub" x="465" y="110" text-anchor="middle">LiteRT · EfficientDet</text>
+
+            <rect class="box" x="570" y="60" width="150" height="70" rx="10" />
+            <text class="title" x="645" y="90" text-anchor="middle">Tracker</text>
+            <text class="sub" x="645" y="110" text-anchor="middle">IoU + distance</text>
+
+            <rect class="box" x="750" y="60" width="180" height="70" rx="10" />
+            <text class="title" x="840" y="90" text-anchor="middle">Line counter</text>
+            <text class="sub" x="840" y="110" text-anchor="middle">hysteresis · ROI</text>
+
+            <path class="arrow" d="M180 95 H206" marker-end="url(#head)" />
+            <path class="arrow" d="M360 95 H386" marker-end="url(#head)" />
+            <path class="arrow" d="M540 95 H566" marker-end="url(#head)" />
+            <path class="arrow" d="M720 95 H746" marker-end="url(#head)" />
+
+            <rect class="box" x="570" y="160" width="150" height="62" rx="10" />
+            <text class="title" x="645" y="187" text-anchor="middle">Native overlay</text>
+            <text class="sub" x="645" y="206" text-anchor="middle">boxes · IDs</text>
+
+            <rect class="box" x="750" y="160" width="180" height="62" rx="10" />
+            <text class="title" x="840" y="187" text-anchor="middle">SQLite (Room)</text>
+            <text class="sub" x="840" y="206" text-anchor="middle">sessions · events · CSV</text>
+
+            <path class="arrow" d="M645 130 V156" marker-end="url(#head)" />
+            <path class="arrow" d="M840 130 V156" marker-end="url(#head)" />
+
+            <rect class="box-accent" x="300" y="270" width="360" height="70" rx="10" />
+            <text class="title" x="480" y="300" text-anchor="middle">React + Ionic interface</text>
+            <text class="sub" x="480" y="320" text-anchor="middle">line editor · counters · history · settings</text>
+
+            <path class="arrow-soft" d="M840 222 V305 H664" marker-end="url(#head)" />
+            <text class="sub" x="676" y="330">Capacitor bridge: results only</text>
+          </svg>
+          <ul class="stack-list">
+            <li><strong>Interface:</strong> React, TypeScript, Ionic, Capacitor.</li>
+            <li>
+              <strong>Native layer:</strong> Kotlin, CameraX, MediaCodec, LiteRT, Room. The camera preview and the
+              box overlay are native views placed behind a transparent WebView.
+            </li>
+            <li>
+              <strong>Domain logic:</strong> geometry, tracking, counting and CSV formatting live in a pure Kotlin
+              module covered by JVM unit tests, with instrumented tests on a physical device for the detector, video
+              decoding, storage and export.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="notes">
+        <div class="wrap">
+          <h2>Technical notes</h2>
+          <dl class="facts">
+            <dt>Version</dt>
+            <dd>1.1.0 (version code 2)</dd>
+            <dt>Package</dt>
+            <dd>com.objectflow.offline</dd>
+            <dt>Minimum Android</dt>
+            <dd>7.0 (API 24) · target API 36</dd>
+            <dt>Architectures</dt>
+            <dd>arm64-v8a, armeabi-v7a</dd>
+            <dt>Internet</dt>
+            <dd>Not required. No network permission is declared.</dd>
+            <dt>Hardware</dt>
+            <dd>Camera for live mode; none for video analysis.</dd>
+            <dt>Permissions</dt>
+            <dd>Camera only, requested when live counting starts.</dd>
+            <dt>Languages</dt>
+            <dd>English; Spanish when the phone is set to Spanish.</dd>
+            <dt>APK size</dt>
+            <dd>36,408,038 bytes (36.4 MB)</dd>
+            <dt>SHA-256</dt>
+            <dd>
+              <code class="checksum">044d0e8f38afc97c8ae5d9c078a0de5742db240a325a25f072d4ba9df415622c</code>
+            </dd>
+            <dt>Signing certificate</dt>
+            <dd>
+              <code class="checksum">
+                F3:FB:2D:49:50:77:F7:9A:A5:FC:B8:65:B0:59:A2:B8:A3:8F:54:BE:4A:00:53:CB:52:AA:0D:C5:D1:79:A6:56
+              </code>
+            </dd>
+            <dt>Measured speed</dt>
+            <dd>
+              About 20 FPS in Fast mode, 12 in Balanced and 8 in Precise with the live camera, measured on one phone
+              with a Snapdragon 7s Gen 3. Results vary by device.
+            </dd>
+          </dl>
+          <p class="note">
+            <strong>Limitations.</strong> Detection covers six classes: people, bicycles, cars, motorcycles, buses and
+            trucks. Counts are automatic estimates whose accuracy depends on lighting, distance, camera angle and
+            occlusion. The app is distributed as a direct APK download, is not on Google Play and does not update
+            itself.
+          </p>
+          <p class="note">
+            This application is provided for technical evaluation. It has not been independently security-audited.
+            It does not identify people: there is no facial recognition or licence plate reading, and no images are
+            stored.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>ObjectFlow Offline · Independent technical demonstration</span>
+      </div>
+    </footer>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Enlarged screenshot">
+      <div class="lightbox-bar">
+        <p data-caption></p>
+        <button class="lightbox-close" type="button">Close</button>
+      </div>
+      <img alt="" />
+    </dialog>
+
+    <script src="demo.js"></script>
+  </body>
+</html>
